@@ -2,10 +2,11 @@ import sys
 
 
 def generate_key(plaintext: str, key: str) -> str:
-    while len(plaintext) > len(key):
-        key += key
+    curr_key = key
+    while len(plaintext) > len(curr_key):
+        curr_key += key
 
-    return key
+    return curr_key
 
 
 def encrypt(plaintext: str, key: str):
