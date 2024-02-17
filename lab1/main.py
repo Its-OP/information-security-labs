@@ -11,8 +11,9 @@ def generate_key(plaintext: str, key: str) -> str:
 
 def encrypt(plaintext: str, key: str):
     cipher_text = []
+    base = ord('a')
     for i in range(len(plaintext)):
-        x = (ord(plaintext[i]) + ord(key[i])) % 26
+        x = (ord(plaintext[i]) - base + ord(key[i]) - base) % 26
         x += ord('a')
         cipher_text.append(chr(x))
     return ''.join(cipher_text)
